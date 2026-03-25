@@ -1,187 +1,238 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eryk - Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eryk - Portfolio</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            background: linear-gradient(135deg, #0f172a, #020617);
-            color: white;
-            overflow-x: hidden;
-        }
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center/cover;
+}
 
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 40px 20px;
-        }
+/* OVERLAY */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    z-index: -1;
+}
 
-        /* CARD */
-        .card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 0 40px rgba(0,0,0,0.5);
-            text-align: center;
-            animation: fadeIn 1.2s ease;
-        }
+/* NAV */
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 40px;
+    z-index: 1000;
+}
 
-        h1 {
-            font-size: 42px;
-            margin-bottom: 10px;
-        }
+nav h2 {
+    color: #38bdf8;
+}
 
-        .typing {
-            color: #38bdf8;
-            font-weight: bold;
-        }
+nav a {
+    color: white;
+    margin-left: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+}
 
-        p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-        }
+nav a:hover {
+    color: #38bdf8;
+}
 
-        /* SOCIAL */
-        .social a {
-            display: inline-block;
-            margin: 10px;
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
-            color: white;
-            transition: 0.3s;
-            font-weight: bold;
-        }
+/* HERO */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 
-        .x {
-            background: black;
-        }
+.hero h1 {
+    font-size: 55px;
+}
 
-        .fb {
-            background: #1877f2;
-        }
+.typing {
+    color: #38bdf8;
+    margin-top: 10px;
+}
 
-        .social a:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 15px rgba(255,255,255,0.3);
-        }
+/* BUTTON */
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    border-radius: 30px;
+    background: #38bdf8;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+}
 
-        /* SKILLS */
-        .skills {
-            margin-top: 40px;
-            text-align: left;
-        }
+.btn:hover {
+    transform: scale(1.1);
+}
 
-        .skills h2 {
-            margin-bottom: 20px;
-        }
+/* SECTION */
+.section {
+    padding: 80px 20px;
+    max-width: 1000px;
+    margin: auto;
+    animation: fadeUp 1s ease;
+}
 
-        .skill {
-            margin-bottom: 15px;
-        }
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+}
 
-        .skill-name {
-            margin-bottom: 5px;
-        }
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.1);
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px 0;
+    backdrop-filter: blur(10px);
+    transition: 0.3s;
+}
 
-        .bar {
-            height: 10px;
-            background: #1e293b;
-            border-radius: 10px;
-            overflow: hidden;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(56,189,248,0.5);
+}
 
-        .progress {
-            height: 100%;
-            background: linear-gradient(90deg, #38bdf8, #22c55e);
-            animation: load 2s ease;
-        }
+/* SKILLS */
+.bar {
+    height: 8px;
+    background: #020617;
+    border-radius: 10px;
+}
 
-        /* FOOTER */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #64748b;
-        }
+.progress {
+    height: 100%;
+    background: #38bdf8;
+}
 
-        /* ANIMATION */
-        @keyframes load {
-            from { width: 0; }
-        }
+/* CONTACT */
+.contact {
+    text-align: center;
+}
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+/* SOCIAL */
+.social a {
+    margin: 10px;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+}
 
-    </style>
+.social a:hover {
+    transform: scale(1.1);
+}
+
+.x { background: black; }
+.fb { background: #1877f2; }
+.tiktok { background: #111; }
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #cbd5f5;
+}
+</style>
 </head>
+
 <body>
 
-    <div class="container">
-        <div class="card">
-
-            <h1>Eryk 👋</h1>
-            <p class="typing">Web Developer | C++ Learner | Tech Enthusiast</p>
-
-            <p>
-                Xin chào! Tôi là Eryk — một người đam mê lập trình và công nghệ. 
-                Tôi đang học và phát triển kỹ năng trong lĩnh vực lập trình web và C++.
-            </p>
-
-            <div class="social">
-                <a class="x" href="https://x.com/Erykle1blp" target="_blank">X</a>
-                <a class="fb" href="https://www.facebook.com/anggkhoi.806438" target="_blank">Facebook</a>
-            </div>
-
-            <!-- SKILLS -->
-            <div class="skills">
-                <h2>💻 Kỹ năng</h2>
-
-                <div class="skill">
-                    <div class="skill-name">HTML</div>
-                    <div class="bar"><div class="progress" style="width: 90%"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name">CSS</div>
-                    <div class="bar"><div class="progress" style="width: 80%"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name">C++</div>
-                    <div class="bar"><div class="progress" style="width: 70%"></div></div>
-                </div>
-
-                <div class="skill">
-                    <div class="skill-name">JavaScript</div>
-                    <div class="bar"><div class="progress" style="width: 60%"></div></div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <footer>
-            © 2026 Eryk. Made with ❤️
-        </footer>
+<nav>
+    <h2>Eryk</h2>
+    <div>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
     </div>
+</nav>
+
+<section class="hero" id="home">
+    <div>
+        <h1>Hi, I'm Eryk 👋</h1>
+        <div class="typing" id="typing"></div>
+        <a href="#contact" class="btn">Liên hệ</a>
+    </div>
+</section>
+
+<section class="section" id="about">
+    <h2>👨‍💻 About Me</h2>
+    <div class="card">Tôi là một người yêu thích lập trình và sáng tạo.</div>
+    <div class="card">Tôi tập trung vào HTML, CSS và C++.</div>
+    <div class="card">Luôn học hỏi và phát triển mỗi ngày.</div>
+</section>
+
+<section class="section" id="skills">
+    <h2>💻 Skills</h2>
+
+    HTML
+    <div class="bar"><div class="progress" style="width:90%"></div></div>
+
+    CSS
+    <div class="bar"><div class="progress" style="width:85%"></div></div>
+
+    C++
+    <div class="bar"><div class="progress" style="width:70%"></div></div>
+</section>
+
+<section class="section" id="contact">
+    <h2>📞 Contact</h2>
+    <div class="contact">
+        <p>Hotline: <b>0334478903</b></p>
+
+        <div class="social">
+            <a class="x" href="https://x.com/Erykle1blp" target="_blank">X</a>
+            <a class="fb" href="https://www.facebook.com/anggkhoi.806438" target="_blank">Facebook</a>
+            <a class="tiktok" href="https://www.tiktok.com/@dkou07" target="_blank">TikTok</a>
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Eryk - Portfolio
+</footer>
+
+<script>
+const text = "Simple • Clean • Personal";
+let i = 0;
+function typing(){
+    if(i < text.length){
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing, 50);
+    }
+}
+typing();
+</script>
 
 </body>
 </html>
