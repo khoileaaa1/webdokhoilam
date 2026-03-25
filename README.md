@@ -3,43 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eryk - Personal Website</title>
+    <title>Eryk - Developer</title>
+
     <style>
-        body {
+        * {
             margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f172a, #020617);
             color: white;
-            text-align: center;
+            overflow-x: hidden;
         }
 
         .container {
-            padding: 50px 20px;
+            max-width: 1000px;
+            margin: auto;
+            padding: 40px 20px;
         }
 
-        img {
-            width: 150px;
-            border-radius: 50%;
-            border: 3px solid white;
+        /* CARD */
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.5);
+            text-align: center;
+            animation: fadeIn 1.2s ease;
         }
 
         h1 {
-            margin-top: 20px;
-            font-size: 40px;
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .typing {
+            color: #38bdf8;
+            font-weight: bold;
         }
 
         p {
-            color: #cbd5f5;
+            color: #94a3b8;
+            margin-bottom: 25px;
         }
 
+        /* SOCIAL */
         .social a {
             display: inline-block;
             margin: 10px;
             padding: 10px 20px;
-            border-radius: 25px;
+            border-radius: 30px;
             text-decoration: none;
             color: white;
             transition: 0.3s;
+            font-weight: bold;
         }
 
         .x {
@@ -52,30 +73,113 @@
 
         .social a:hover {
             transform: scale(1.1);
+            box-shadow: 0 0 15px rgba(255,255,255,0.3);
         }
 
-        footer {
-            margin-top: 50px;
-            color: #94a3b8;
-            font-size: 14px;
+        /* SKILLS */
+        .skills {
+            margin-top: 40px;
+            text-align: left;
         }
+
+        .skills h2 {
+            margin-bottom: 20px;
+        }
+
+        .skill {
+            margin-bottom: 15px;
+        }
+
+        .skill-name {
+            margin-bottom: 5px;
+        }
+
+        .bar {
+            height: 10px;
+            background: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            background: linear-gradient(90deg, #38bdf8, #22c55e);
+            animation: load 2s ease;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            color: #64748b;
+        }
+
+        /* ANIMATION */
+        @keyframes load {
+            from { width: 0; }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
     </style>
 </head>
 <body>
 
     <div class="container">
-        <img src="https://via.placeholder.com/150" alt="avatar">
+        <div class="card">
 
-        <h1>Hi, I'm Eryk 👋</h1>
-        <p>Chào bạn! Đây là website cá nhân của tôi.</p>
+            <h1>Eryk 👋</h1>
+            <p class="typing">Web Developer | C++ Learner | Tech Enthusiast</p>
 
-        <div class="social">
-            <a class="x" href="https://x.com/Erykle1blp" target="_blank">X (Twitter)</a>
-            <a class="fb" href="https://www.facebook.com/anggkhoi.806438" target="_blank">Facebook</a>
+            <p>
+                Xin chào! Tôi là Eryk — một người đam mê lập trình và công nghệ. 
+                Tôi đang học và phát triển kỹ năng trong lĩnh vực lập trình web và C++.
+            </p>
+
+            <div class="social">
+                <a class="x" href="https://x.com/Erykle1blp" target="_blank">X</a>
+                <a class="fb" href="https://www.facebook.com/anggkhoi.806438" target="_blank">Facebook</a>
+            </div>
+
+            <!-- SKILLS -->
+            <div class="skills">
+                <h2>💻 Kỹ năng</h2>
+
+                <div class="skill">
+                    <div class="skill-name">HTML</div>
+                    <div class="bar"><div class="progress" style="width: 90%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">CSS</div>
+                    <div class="bar"><div class="progress" style="width: 80%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">C++</div>
+                    <div class="bar"><div class="progress" style="width: 70%"></div></div>
+                </div>
+
+                <div class="skill">
+                    <div class="skill-name">JavaScript</div>
+                    <div class="bar"><div class="progress" style="width: 60%"></div></div>
+                </div>
+
+            </div>
+
         </div>
 
         <footer>
-            © 2026 Eryk. All rights reserved.
+            © 2026 Eryk. Made with ❤️
         </footer>
     </div>
 
